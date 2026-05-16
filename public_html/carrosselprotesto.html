@@ -1,0 +1,261 @@
+<!-- TIMELINE PROTESTO (clean) | Dudu + ChatGPT -->
+<section id="timeline-protesto" class="tl-wrap" aria-label="Timeline de Protesto e Negociação">
+  <ol class="tl" role="list">
+    <!-- Linha da timeline -->
+    <div class="tl-line" aria-hidden="true">
+      <div class="tl-progress"></div>
+    </div>
+
+    <li class="tl-item">
+      <div class="tl-card">
+        <span class="emoji" aria-hidden="true">📩</span>
+        <div class="text">
+          <h3>Recebeu intimação?</h3>
+          <p>Você tem <strong>3 dias úteis</strong> para <strong>pagar no cartório</strong> (o valor vai ao credor) ou <strong>apresentar defesa</strong> se a cobrança for indevida.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <div class="tl-card">
+        <span class="emoji" aria-hidden="true">🧾</span>
+        <div class="text">
+          <h3>Foi protestado? Ainda dá pra resolver.</h3>
+          <p>Pague <strong>direto ao credor</strong> e peça a <strong>carta de quitação</strong>.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <div class="tl-card">
+        <span class="emoji" aria-hidden="true">🏛️</span>
+        <div class="text">
+          <h3>Cancelamento do protesto</h3>
+          <p>Com a carta em mãos, solicite o <strong>cancelamento no cartório</strong> e quite os <strong>emolumentos</strong> informados.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <div class="tl-card">
+        <span class="emoji" aria-hidden="true">✅</span>
+        <div class="text">
+          <h3>Nome limpo novamente</h3>
+          <p>Após o pagamento dos emolumentos, o cartório efetiva o cancelamento e <strong>solicita a retirada</strong> do seu nome nas bases de crédito.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl-item">
+      <div class="tl-card">
+        <span class="emoji" aria-hidden="true">🤝</span>
+        <div class="text">
+          <h3>Preferiu negociar?</h3>
+          <p>O cartório <strong>facilita o contato</strong> com o credor para acordos rápidos e seguros.</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<style>
+  /* ===== Paleta ===== */
+  :root{
+    --primary:#072E9F;
+    --accent:#0198FF;
+    --muted:#CED0D3;
+    --dark:#282828;
+    --bg:#f1f1f1;            /* fundo neutro */
+    --card-bg:#fff;
+    --shadow:0 10px 30px rgba(7,46,159,0.10);
+    --radius:18px;
+  }
+
+  /* Reset e base */
+  #timeline-protesto, #timeline-protesto *{box-sizing:border-box}
+  #timeline-protesto{
+    font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+  }
+
+  /* ===== Wrapper sem cores de fundo ===== */
+  .tl-wrap{
+    background: var(--bg);   /* limpo */
+    color: var(--dark);
+    padding: clamp(20px, 4vw, 44px) clamp(16px, 4vw, 32px);
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== Lista ===== */
+  .tl{
+    list-style:none;
+    margin:0;
+    padding:0;
+    counter-reset: passo;
+    max-width:1100px;
+    margin-inline:auto;
+    position:relative;
+  }
+
+  /* Linha vertical da timeline */
+  .tl-line{
+    position:absolute; inset: 0 auto 0 50%;
+    width:4px; transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--muted), #e8eaed);
+    border-radius:2px;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  .tl-progress{
+    position:absolute; left:0; top:0; width:100%; height:100%;
+    transform-origin: top;
+    transform: scaleY(0);
+    background: linear-gradient(180deg, var(--accent), var(--primary));
+    box-shadow: 0 0 18px rgba(1,152,255,0.25) inset;
+    transition: transform .9s cubic-bezier(.2,.9,.2,1);
+  }
+
+  /* Cada item */
+  .tl-item{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:22px;
+    margin: clamp(20px, 3vw, 28px) 0;
+  }
+
+  /* Alternância esquerda/direita em telas grandes */
+  .tl-item:nth-child(odd) .tl-card{grid-column:1 / span 1; justify-self:end;}
+  .tl-item:nth-child(even) .tl-card{grid-column:2 / span 1; justify-self:start;}
+
+  /* >>> Só o NÚMERO na linha (sem pino) <<< */
+  .tl-item::after{
+    counter-increment: passo;
+    content: counter(passo, decimal-leading-zero);
+    position:absolute;
+    left:50%; top:50%;
+    transform: translate(-50%, -50%);
+    padding:6px 10px;
+    font:700 12px/1 Poppins, system-ui;
+    color:#fff;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius:999px;
+    letter-spacing:1px;
+    box-shadow:0 8px 18px rgba(7,46,159,0.22);
+    z-index:2;
+  }
+
+  /* Card clean */
+  .tl-card{
+    display:grid;
+    grid-template-columns: 40px 1fr;
+    align-items:start;
+    gap:14px;
+    background: var(--card-bg);
+    border:1px solid rgba(7,46,159,0.06);
+    border-radius: var(--radius);
+    padding: clamp(14px, 2.4vw, 20px);
+    min-width:min(560px, 90%);
+    box-shadow: var(--shadow);
+    opacity:0; transform: translateY(16px) scale(.98);
+    will-change: transform, opacity;
+  }
+
+  /* Emoji sem fundo/sem borda, com balanço */
+  .emoji{
+    font-size:28px;
+    line-height:1;
+    display:block;
+    animation: float 4s ease-in-out infinite;
+    filter: saturate(1.1);
+  }
+
+  .text h3{
+    margin:0 0 6px;
+    font-weight:700;
+    color:var(--dark);
+    font-size: clamp(16px, 2.4vw, 20px);
+  }
+  .text p{
+    margin:0;
+    color:#3a3a3a;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+  .text strong{color: var(--primary); font-weight:700;}
+
+  /* Visibilidade/entrada */
+  .tl-item.is-visible .tl-card{
+    opacity:1; transform:none;
+    transition: transform .6s cubic-bezier(.2,.9,.2,1), opacity .6s ease;
+  }
+  .tl-item.is-visible .emoji{
+    animation: pop .5s ease-out, float 4s ease-in-out .5s infinite;
+  }
+
+  /* Animações */
+  @keyframes float{
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(-6px) }
+  }
+  @keyframes pop{
+    0%{ transform: scale(.6) }
+    70%{ transform: scale(1.08) }
+    100%{ transform: scale(1) }
+  }
+
+  /* Desktop: entrada lateral sutil */
+  @media (min-width: 860px){
+    .tl-item:nth-child(odd) .tl-card{transform: translateX(-16px) translateY(16px); }
+    .tl-item:nth-child(even) .tl-card{transform: translateX(16px) translateY(16px); }
+    .tl-item.is-visible:nth-child(odd) .tl-card,
+    .tl-item.is-visible:nth-child(even) .tl-card{ transform: none; }
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 859.98px){
+    .tl{padding-left:12px;}
+    .tl-line{left:18px; transform:none;}
+    .tl-item{
+      grid-template-columns:1fr;
+      gap:12px;
+      padding-left:38px;
+    }
+    .tl-card{min-width:100%; grid-template-columns:32px 1fr; border-radius:16px;}
+    .emoji{font-size:24px;}
+    .tl-item::after{left:18px; transform: translate(-50%, -50%);} /* número alinhado à linha no mobile */
+  }
+</style>
+
+<script>
+  (function(){
+    const section  = document.getElementById('timeline-protesto');
+    const items    = section.querySelectorAll('.tl-item');
+    const progress = section.querySelector('.tl-progress');
+
+    // Anima cards ao entrar na viewport
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('is-visible');
+      });
+      syncProgress();
+    }, { threshold: 0.35 });
+
+    items.forEach(i=>io.observe(i));
+
+    function syncProgress(){
+      const visible = [...items].filter(i=>i.classList.contains('is-visible'));
+      if(!visible.length) return;
+      const last = visible[visible.length-1];
+      const line = section.querySelector('.tl-line');
+      const rectLine = line.getBoundingClientRect();
+      const lineTop = rectLine.top + window.scrollY;
+      const lastCenter = last.getBoundingClientRect().top + window.scrollY + last.offsetHeight/2;
+      const pct = Math.min(1, Math.max(0, (lastCenter - lineTop) / rectLine.height));
+      progress.style.transform = `scaleY(${pct})`;
+    }
+
+    window.addEventListener('scroll', syncProgress, { passive:true });
+    window.addEventListener('resize', syncProgress);
+  })();
+</script>
