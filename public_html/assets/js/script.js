@@ -13,6 +13,7 @@
   }
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('resize', updateHeader, { passive: true });
 
   /* ---------- Menu mobile ---------- */
   var menuToggle = document.getElementById('menuToggle');
@@ -23,14 +24,24 @@
       menuToggle.classList.toggle('open', isOpen);
       if (header) header.classList.toggle('menu-open', isOpen);
       menuToggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('menu-open', isOpen);
     });
+    var closeMobileMenu = function () {
+      mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      if (header) header.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    };
+
     mobileMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        menuToggle.classList.remove('open');
-        if (header) header.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+        closeMobileMenu();
       });
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) closeMobileMenu();
     });
   }
 
@@ -67,7 +78,7 @@
         alert('Por favor, preencha todos os campos.');
         return;
       }
-      var msg = 'Olá! Meu nome é ' + nome + ' e gostaria de falar sobre ' + assunto + '.';
+      var msg = 'Olá! Meu nome é ' + nome.replace(/[<>]/g, '') + ' e gostaria de falar sobre ' + assunto + '.';
       window.open('https://wa.me/5563992876354?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     });
   }
@@ -137,9 +148,16 @@
     if (galleryPrev) galleryPrev.addEventListener('click', function () { goToImage(current - 1); });
     if (galleryNext) galleryNext.addEventListener('click', function () { goToImage(current + 1); });
     var galleryTimer = window.setInterval(function () { goToImage(current + 1); }, 5000);
-    galleryStage.closest('.gallery__stage').addEventListener('mouseenter', function () {
-      window.clearInterval(galleryTimer);
-    });
+    var galleryStageRoot = galleryStage.closest('.gallery__stage');
+    if (galleryStageRoot) {
+      galleryStageRoot.addEventListener('mouseenter', function () {
+        window.clearInterval(galleryTimer);
+      });
+      galleryStageRoot.addEventListener('mouseleave', function () {
+        window.clearInterval(galleryTimer);
+        galleryTimer = window.setInterval(function () { goToImage(current + 1); }, 5000);
+      });
+    }
   }
 
   /* ---------- Carrossel da equipe ---------- */
@@ -152,6 +170,23 @@
     });
     if (teamRight) teamRight.addEventListener('click', function () {
       teamScroll.scrollBy({ left: 240, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- Carrossel de negociação (home) ---------- */
+  var debtTrack = document.getElementById('debtTrack');
+  if (debtTrack) {
+    var debtPrev = document.getElementById('debtPrev');
+    var debtNext = document.getElementById('debtNext');
+    var debtStepWidth = function () {
+      var card = debtTrack.querySelector('.debt-step');
+      return card ? Math.ceil(card.getBoundingClientRect().width + 16) : 300;
+    };
+    if (debtPrev) debtPrev.addEventListener('click', function () {
+      debtTrack.scrollBy({ left: -debtStepWidth(), behavior: 'smooth' });
+    });
+    if (debtNext) debtNext.addEventListener('click', function () {
+      debtTrack.scrollBy({ left: debtStepWidth(), behavior: 'smooth' });
     });
   }
 
