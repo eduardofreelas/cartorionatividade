@@ -89,12 +89,10 @@
       </a>
 
       <div class="nav-links" id="desktopNav">
-        <a href="index.html" class="nav-link active">Início</a>
+        <a href="index.html" class="nav-link">Início</a>
         <a href="o-cartorio.html" class="nav-link">O Cartório</a>
-        <a href="#servicos" class="nav-link">Serviços</a>
-        <a href="emolumentos.html" class="nav-link">Emolumentos</a>
-        <a href="atendimento-online.html" class="nav-link">Atendimento Online</a>
-        <a href="atendimento-presencial.html" class="nav-link">Atendimento Presencial</a>
+        <a href="calculadora-emolumentos.html" class="nav-link">Calculadora de Emolumentos</a>
+        <a href="emolumentos.html" class="nav-link">Tabela de Emolumentos</a>
       </div>
 
       <a href="https://wa.me/5563992876354?text=Ol%C3%A1%2C%20eu%20vim%20do%20site%20e%20preciso%20de%20ajuda%20" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp nav-cta">
@@ -108,12 +106,10 @@
 
     <div class="mobile-menu" id="mobileMenu">
       <div class="container mobile-menu__inner">
-        <a href="index.html" class="mobile-link active">Início</a>
+        <a href="index.html" class="mobile-link">Início</a>
         <a href="o-cartorio.html" class="mobile-link">O Cartório</a>
-        <a href="#servicos" class="mobile-link">Serviços</a>
-        <a href="emolumentos.html" class="mobile-link">Emolumentos</a>
-        <a href="atendimento-online.html" class="mobile-link">Atendimento Online</a>
-        <a href="atendimento-presencial.html" class="mobile-link">Atendimento Presencial</a>
+        <a href="calculadora-emolumentos.html" class="mobile-link">Calculadora de Emolumentos</a>
+        <a href="emolumentos.html" class="mobile-link">Tabela de Emolumentos</a>
         <a href="tel:+556333721347" class="mobile-link">(63) 3372-1347</a>
         <a href="https://wa.me/5563992876354?text=Ol%C3%A1%2C%20eu%20vim%20do%20site%20e%20preciso%20de%20ajuda%20" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp mobile-menu__btn">Falar no WhatsApp</a>
       </div>
@@ -327,50 +323,63 @@
       </div>
     </section>
 
-    <section class="debt section" aria-label="Timeline de Protesto e Negociação" id="timeline-protesto">
+    <section class="debt section" aria-label="Carrossel de Protesto e Negociação" id="timeline-protesto">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Negociação de Dívidas</span>
           <h2>Como negociar e regularizar?</h2>
         </div>
 
-        <ol class="timeline" role="list">
-          <li class="timeline__item reveal">
-            <article class="timeline__card">
-              <span class="timeline__number" aria-hidden="true">01</span>
+        <div class="debt-carousel reveal">
+          <button class="debt-carousel__btn debt-carousel__btn--prev" id="debtPrev" aria-label="Voltar etapa">
+            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <ol class="debt-carousel__track" id="debtTrack" role="list">
+            <li class="debt-step">
+              <article class="debt-step__card">
+                <span class="debt-step__icon" aria-hidden="true"><img src="assets/icons/Recebeu intimação.svg" alt="" loading="lazy"></span>
+                <span class="debt-step__number" aria-hidden="true">01</span>
               <h3>Recebeu intimação?</h3>
               <p>Você tem <strong>3 dias úteis</strong> para <strong>pagar no cartório</strong> (o valor vai ao credor) ou <strong>apresentar defesa</strong> se a cobrança for indevida.</p>
-            </article>
-          </li>
-          <li class="timeline__item reveal">
-            <article class="timeline__card">
-              <span class="timeline__number" aria-hidden="true">02</span>
+              </article>
+            </li>
+            <li class="debt-step">
+              <article class="debt-step__card">
+                <span class="debt-step__icon" aria-hidden="true"><img src="assets/icons/Foi protestado.svg" alt="" loading="lazy"></span>
+                <span class="debt-step__number" aria-hidden="true">02</span>
               <h3>Foi protestado? Ainda dá pra resolver.</h3>
               <p>Pague <strong>direto ao credor</strong> e peça a <strong>carta de quitação</strong>.</p>
-            </article>
-          </li>
-          <li class="timeline__item reveal">
-            <article class="timeline__card">
-              <span class="timeline__number" aria-hidden="true">03</span>
+              </article>
+            </li>
+            <li class="debt-step">
+              <article class="debt-step__card">
+                <span class="debt-step__icon" aria-hidden="true"><img src="assets/icons/Cancelamento do protesto.svg" alt="" loading="lazy"></span>
+                <span class="debt-step__number" aria-hidden="true">03</span>
               <h3>Cancelamento do protesto</h3>
               <p>Com a carta em mãos, solicite o <strong>cancelamento no cartório</strong> e quite os <strong>emolumentos</strong> informados.</p>
-            </article>
-          </li>
-          <li class="timeline__item reveal">
-            <article class="timeline__card">
-              <span class="timeline__number" aria-hidden="true">04</span>
+              </article>
+            </li>
+            <li class="debt-step">
+              <article class="debt-step__card">
+                <span class="debt-step__icon" aria-hidden="true"><img src="assets/icons/Nome limpo.svg" alt="" loading="lazy"></span>
+                <span class="debt-step__number" aria-hidden="true">04</span>
               <h3>Nome limpo novamente</h3>
               <p>Após o pagamento dos emolumentos, o cartório efetiva o cancelamento e <strong>solicita a retirada</strong> do seu nome nas bases de crédito.</p>
-            </article>
-          </li>
-          <li class="timeline__item reveal">
-            <article class="timeline__card">
-              <span class="timeline__number" aria-hidden="true">05</span>
+              </article>
+            </li>
+            <li class="debt-step">
+              <article class="debt-step__card">
+                <span class="debt-step__icon" aria-hidden="true"><img src="assets/icons/Preferiu negociar.svg" alt="" loading="lazy"></span>
+                <span class="debt-step__number" aria-hidden="true">05</span>
               <h3>Preferiu negociar?</h3>
               <p>O cartório <strong>facilita o contato</strong> com o credor para acordos rápidos e seguros.</p>
-            </article>
-          </li>
-        </ol>
+              </article>
+            </li>
+          </ol>
+          <button class="debt-carousel__btn debt-carousel__btn--next" id="debtNext" aria-label="Avançar etapa">
+            <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -489,7 +498,8 @@
           <a href="index.html">Início</a>
           <a href="o-cartorio.html">O Cartório</a>
           <a href="#servicos">Serviços</a>
-          <a href="emolumentos.html">Emolumentos</a>
+          <a href="emolumentos.html">Tabela de Emolumentos</a>
+          <a href="calculadora-emolumentos.html">Calculadora de Emolumentos</a>
           <a href="atendimento-online.html">Atendimento Online</a>
           <a href="atendimento-presencial.html">Atendimento Presencial</a>
         </nav>
@@ -514,6 +524,12 @@
         </nav>
       </div>
     </div>
+
+
+      <div class="footer__col footer__col--map">
+        <h4>Onde Estamos</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.445494261962!2d-47.724741699999996!3d-11.708966400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9339c90091300731%3A0x9b3cb95b35513ab0!2sCart%C3%B3rio%20Natividade!5e1!3m2!1spt-BR!2sbr!4v1778897455800!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0; width:100%; max-width:380px; border-radius:14px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
 
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
