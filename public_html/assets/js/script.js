@@ -100,12 +100,12 @@
   var galleryStage = document.getElementById('galleryImg');
   if (galleryStage) {
     var images = [
-      { src: '/assets/images/fachada1.jpg',        label: 'Fachada' },
-      { src: '/assets/images/fachada2.jpg',         label: 'Fachada lateral' },
-      { src: '/assets/images/recepcao.jpg',         label: 'Recepção' },
-      { src: '/assets/images/sala-reuniao.jpg',     label: 'Sala de reunião' },
-      { src: '/assets/images/guiches.jpg',          label: 'Guichês de atendimento' },
-      { src: '/assets/images/sala-atendimento.jpg', label: 'Sala de atendimento' }
+      { src: 'assets/images/fachada1.jpg',        label: 'Fachada' },
+      { src: 'assets/images/fachada2.jpg',         label: 'Fachada lateral' },
+      { src: 'assets/images/recepcao.jpg',         label: 'Recepção' },
+      { src: 'assets/images/sala-reuniao.jpg',     label: 'Sala de reunião' },
+      { src: 'assets/images/guiches.jpg',          label: 'Guichês de atendimento' },
+      { src: 'assets/images/sala-atendimento.jpg', label: 'Sala de atendimento' }
     ];
     var current = 0;
     var galleryLabel = document.getElementById('galleryLabel');

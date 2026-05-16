@@ -323,12 +323,12 @@ strong { font-weight: 700; color: inherit; }
 .hero__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(8px);
-  opacity: .5;
+  filter: blur(90px);
+  opacity: .6;
   pointer-events: none;
 }
-.hero__orb--one { width: 340px; height: 340px; background: rgba(31, 95, 208, .42); top: 18%; right: 9%; }
-.hero__orb--two { width: 200px; height: 200px; background: rgba(127, 178, 255, .3); bottom: 12%; left: 44%; }
+.hero__orb--one { width: 420px; height: 420px; background: rgba(31, 95, 208, .55); top: 6%; right: -4%; }
+.hero__orb--two { width: 320px; height: 320px; background: rgba(127, 178, 255, .4); bottom: 4%; left: 38%; }
 .hero__grid {
   position: relative;
   z-index: 1;
